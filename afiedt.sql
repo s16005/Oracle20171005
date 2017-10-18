@@ -1,4 +1,7 @@
-select w.last_name "Employee", w.employee_id "#Emp", m.last_name "Manager", m.manager_id "#Mgr"
-from employees w join employees m
-on w.manager_id = m.employee_id
+select last_name, hire_date, department_id
+from employees
+where department_id =any (select department_id
+                        from employees
+                        where last_name = '&&last_name')
+and last_name <> '&&last_name'
 /
