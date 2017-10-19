@@ -1,0 +1,6 @@
+select country_id, country_name
+from countries natural join departments
+minus
+select country_id, country_name
+from countries natural join departments
+where location_id = (select location_id from locations);
