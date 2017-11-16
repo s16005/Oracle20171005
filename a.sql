@@ -1,10 +1,10 @@
-create table MEMBER
-(
-    member_id number(10) constraint MEMBER_member_id_pk PRIMARY KEY,
-    last_name varchar(25) constraint MEMBER_last_name_nn not null,
-    first_name varchar(25),
-    address varchar(25),
-    city varchar(25),
-    phone varchar(25),
-    join_date date default sysdate constraint MEMBER_join_date_nn not null
+insert into title
+(title_id,title, description, rating, category, release_date)
+values
+(title_id_seq.nextval,
+'Interstellar Wars',
+ '未来の宇宙を舞台にしたアクション映画。反乱軍は悪の帝国から人類を守ることができるか？',
+ 'PG',
+ 'SCIFI',
+to_date('07-JUL-2007', 'DD-MON-YYYY', 'nls_date_language = AMERICAN')
 );

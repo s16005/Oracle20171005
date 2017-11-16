@@ -1,11 +1,10 @@
-create table TITLE
-(
-    title_id number(10) constraint MEMBER_title_id_pk primary key,
-    title varchar(60) constraint MEMBER_title_nn not null,
-    description varchar(400) constraint MEMBER_description_nn not null,
-    rating varchar(4) constraint MEMBER_rating_ck 
-                                check(rating in ('G', 'PG', 'R', 'NC17', 'NR')),
-    category varchar(20) constraint MEMBER_category_ck 
-       check(category in ('DRAMA', 'COMEDY', 'ACTION', 'CHILD', 'SCIFI', 'DOCUMENTARY')),
-    release_date date
+insert into member(member_id, last_name, first_name, address, city, phone, join_date)
+values(
+member_id_seq.nextval,
+'Molly',
+'Urguhart',
+'3035 Laurier',
+'QueBec',
+'418-542-9988',
+to_date('18-JAN-2012', 'DD-MON_YYYY', 'nls_date_language =AMERICAN')
 );

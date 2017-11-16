@@ -1,9 +1,7 @@
-create table RESRVATION
-(
-    res_date date,
-    member_id number(10),
-    title_id number(10),
-    constraint RESERVATION_res_date_pk primary key(res_date, member_id, title_id),
-    constraint RESERVATION_member_id_fk foreign key(member_id) references MEMBER(member_id),
-    constraint RESERVATION_titler_id_fk foreign key(title_id) references TITLE(title_id)
-);
+create view title_avail
+as
+select t.title, c.copy_id, c.status, r.exp_ret_date
+from title t 
+join title_copy c on t.title_id = c.title_id 
+join rental r on t.title_id = r.title_id
+;
